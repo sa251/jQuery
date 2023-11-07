@@ -45,6 +45,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     // // ここに処理を記載します
+
+    $(document).on('click', '.js-fortune-restart', function () {
+
+      $(".result").fadeOut(2000);
+      toggleStartClass(this, '運勢を占う！');
+
+    });
+
+    function toggleStartClass(element, text) {
+      $(element).toggleClass('js-fortune-start').toggleClass('js-fortune-restart').text(text);
+
+    };
     const fortuneResults = {
       money: [
         { stars: '★★★', detail: '最高の運勢です！いつの間にかお金がたまっているかも・・・？' },
@@ -86,18 +98,6 @@
         const element_detail = $("." + title).find(".detail");
         $(element_stars).text(stars);
         $(element_detail).text(detail);
-
-      };
-
-      $(document).on('click', '.js-fortune-restart', function () {
-
-        $(".result").fadeOut(2000);
-        toggleStartClass(this, '運勢を占う！');
-
-      });
-
-      function toggleStartClass(element, text) {
-        $(element).toggleClass('js-fortune-start').toggleClass('js-fortune-restart').text(text);
 
       };
 
